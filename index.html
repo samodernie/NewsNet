@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/angular_animate.css" />
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.mobile-1.4.3.min.js"></script>
@@ -95,24 +96,32 @@ window.upload_news_data_status=0;
 	<div data-role="header"  data-tap-toggle="false" data-position="fixed" data-id="news_header_fixed" >
     	<div class="user_details">
         	<div class="user_pro_pic"></div> 
-            <h3 class="user_name_disp"></h3>
+<!--            <h3 class="user_name_disp"></h3>  -->
         </div><!-- user details-->
 		<div class="header_container" >
         	<img src="images/menu.svg" class="menu_icon" />
 			       
-			<div data-role="controlgroup" data-type="horizontal" class="header_btn_wrapper">
-                <a href='#' data-role="button" class="nav_btn" onclick='FacebookInviteFriends();'>Invite your friends</a>
-            	<a href="#" data-role="button" class="nav_btn" data-rel="popup" data-position-to="window" data-transition="pop" onClick="upload_news();">Upload</a>
-				<a href="#filter_panel" data-role="button" class="nav_btn" >Filters</a>
-				<a href="#popupLogin" data-role="button" class="nav_btn" data-rel="popup" data-position-to="window" data-transition="pop">Sign In</a>
-                <a href="#" data-role="button" class="nav_btn" id="sign_out" >Sign Out</a>
-                <a href="#popupReg" data-role="button" class="nav_btn" data-rel="popup" data-position-to="window" data-transition="pop">Sign Up</a>
-			</div><!--header_btn_wrapper -->
 			<input type="search" name="search" id="search-content" data-wrapper-class="main_search" value=""  ng-model="main_search" />
 			<div class="header_logo"></div><!--header_logo -->
+			
+					<div data-role="controlgroup" data-type="horizontal" class="header_btn_wrapper">
+                <a href='#' data-role="button" class="nav_btn1" onclick='FacebookInviteFriends();'><font color="white">Invite</font></a>
+				<br>
+            	<a href="#" data-role="button" class="nav_btn1" data-rel="popup" data-position-to="window" data-transition="pop" onClick="upload_news();"><font color="white">Upload</font></a>
+				<br>
+				<a href="#filter_panel" data-role="button" class="nav_btn1" ><font color="white">Filters</font></a>
+				<br>
+				<a href="#popupLogin" data-role="button" class="nav_btn1" data-rel="popup" data-position-to="window" data-transition="pop"><font color="white">Sign In</font></a>
+				<br>
+                <a href="#" data-role="button" class="nav_btn1" id="sign_out" ><font color="white">Sign Out</font></a>
+				<br>
+                <a href="#popupReg" data-role="button" class="nav_btn1" data-rel="popup" data-position-to="window" data-transition="pop"><font color="white">Sign Up</font></a>
+			</div><!--header_btn_wrapper -->
+			
+			
 		</div><!--header_container -->
-</div><!-- /header -->
 
+</div><!-- /header -->
 
 <div role="main" class="ui-content" >
 	               
