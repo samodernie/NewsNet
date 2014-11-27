@@ -233,8 +233,8 @@ margin: 0 10px 0 65px;
 div.header_btn_wrapper{
 	position: absolute;
 	top: 50px;
-	display:block !important;
-	z-index:100000 !important;
+	display:block ;
+	z-index:100000 ;
 	right: 5px;
 }
 
@@ -825,4 +825,18 @@ line-height:13px !important;
 #filter_panel{
 font-size:12px !important;
 line-height:13px !important;	
+}
+
+
+/*************************************** new nav bar**********************/
+ul#main_nav_bar{
+	position:absolute;
+	width:100px;
+	right:0;
+	top:80px;
+	list-style:none;	
+}
+ul#main_nav_bar li{
+	width:100%;
+	padding:5px;	
 }
