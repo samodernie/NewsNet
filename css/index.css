@@ -834,7 +834,8 @@ ul#main_nav_bar{
 	width:100px;
 	right:0;
 	top:80px;
-	list-style:none;	
+	list-style:none;
+    background: blue;
 }
 ul#main_nav_bar li{
 	width:100%;
