@@ -831,13 +831,26 @@ line-height:13px !important;
 /*************************************** new nav bar**********************/
 ul#main_nav_bar{
 	position:absolute;
-	width:100px;
-	right:0;
-	top:80px;
+	width:90px;
+	right:8px;
+	top:54px;
 	list-style:none;
-    background: blue;
+
 }
 ul#main_nav_bar li{
 	width:100%;
-	padding:5px;	
+	padding:5px 0;
+	text-align:center;
+	color:white;
+	background: #275F9B;
+}
+
+ul#main_nav_bar li:hover{
+	background: #A75F9B;
+}
+
+ul#main_nav_bar li a
+{
+	color:white;
+	text-decoration:none;
 }
