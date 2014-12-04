@@ -832,8 +832,7 @@ line-height:13px !important;
 ul#main_nav_bar{
 	position:absolute;
 	width:90px;
-	right:8px;
-	top:54px;
+	top:64px;
 	list-style:none;
 
 }
@@ -842,6 +841,7 @@ ul#main_nav_bar li{
 	padding:5px 0;
 	text-align:center;
 	color:white;
+    font-family: sans-serif;
 	background: #275F9B;
 }
 
@@ -853,4 +853,13 @@ ul#main_nav_bar li a
 {
 	color:white;
 	text-decoration:none;
+}
+
+.default_icon {
+    height: 40px;
+    width: 40px;
+}
+
+.s2{
+display: none;
 }

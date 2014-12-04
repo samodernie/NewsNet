@@ -131,7 +131,10 @@ function login_check(){
 		password:$("#passwd").val(),
 		ajax:'login_data'
 	}; 
-	
+    
+    alert("hi");
+    $(".s2").show();
+	alert("hoyi");
 	//post_button();
 		
 	$.ajax({
