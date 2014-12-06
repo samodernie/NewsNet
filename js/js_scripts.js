@@ -132,9 +132,7 @@ function login_check(){
 		ajax:'login_data'
 	}; 
     
-    alert("hi");
-    $(".s2").show();
-	alert("hoyi");
+
 	//post_button();
 		
 	$.ajax({
@@ -155,6 +153,10 @@ function login_check(){
 				window.user_id=json_data[0].u_id;
 				show_user_login_details(json_data);
 				//alert(window.user_id);
+                    alert("hi");
+                    $(".s2").show();
+                    $(".s1").hide();
+	                   alert("hoyi");
 			}
 			
 			

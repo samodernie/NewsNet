@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script type="text/javascript" src="js/tinymce/jquery.tinymce.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+     $(document).ready(function() {
+        $('.tinymce').tinymce({
+           script_url : 'js/tinymce/tinymce.min.js',
+           theme : "modern"
+        });
+      });
+
+</script>
+
+
+<form method="post" action="somepage">
+    <textarea class="tinymce" name="content" style="width:100%"></textarea>
+</form>
+
+</body>
+</html>

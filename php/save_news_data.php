@@ -101,6 +101,50 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 	
 	
 }//isset($_FILES["myfile"])
+else{
+
+	$news_image_name="no_image_available.jpg";
+	$news_video_name="no_image_available.jpg";
+
+
+
+
+$get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
+	$res = mysql_query($get_cat_id);
+	
+	if(mysql_num_rows($res)>0){
+		while($row = mysql_fetch_assoc($res)){
+			$cat_id=$row['cat_id'];
+		}
+		$sql_save_news_media ="INSERT INTO `news`
+		(`n_id`, `headline`, `news_desc`, `n_post_time`, `image`, `video`, `city`, `country`, `n_status`, `u_id`, `cat_id`) VALUES 
+		('$news_id','$headline','$news_desc',NULL,'$news_image_name','$news_video_name','$city','$country',1,$u_id,'$cat_id');";
+		 print_r(mysql_query($sql_save_news_media));
+		 
+		// print "<br/>";
+	}else{
+		
+		$sql_inset_new_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`, `u_id`) VALUES (NULL,'$searchField',1,'$u_id')";
+		mysql_query($sql_inset_new_category);
+		
+		//print "insert new category ".$cat_id." ".$searchField." ".$u_id;
+		
+		$get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
+		$res = mysql_query($get_cat_id);
+		
+		while($row = mysql_fetch_assoc($res)){
+			$cat_id=$row['cat_id'];
+		}
+		
+		$sql_save_news_media ="INSERT INTO `news`
+		(`n_id`, `headline`, `news_desc`, `n_post_time`, `image`, `video`, `city`, `country`, `n_status`, `u_id`, `cat_id`) VALUES 
+		('$news_id','$headline','$news_desc',NULL,'$news_image_name','$news_video_name','$city','$country',1,$u_id,'$cat_id');";
+		print_r(mysql_query($sql_save_news_media));
+	}
+	
+	
+}//only news
+
 
 
 

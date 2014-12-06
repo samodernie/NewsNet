@@ -30,6 +30,11 @@
  	<!-- video upload-->
     <script src="js/jquery.form.js"></script>
 
+	<!-- tinymce-->
+    <script type="text/javascript" src="js/tinymce/jquery.tinymce.min.js"></script>
+    
+    <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+
 	<script>
       $.mobile.page.prototype.options.domCache = true;
     </script>
@@ -96,7 +101,7 @@ window.upload_news_data_status=0;
 	<div data-role="header"  data-tap-toggle="false" data-position="fixed" data-id="news_header_fixed" >
     	<div class="user_details">
         	<div class="user_pro_pic">
-            <img src="../images/delt_user.png" class="default_icon" />
+<!--             <img src="../images/delt_user.png" class="default_icon" />  -->
             </div> 
 <!--            <h3 class="user_name_disp"></h3>  -->
         </div><!-- user details-->
@@ -119,12 +124,22 @@ window.upload_news_data_status=0;
 				<br>
                 <a href="#popupReg" data-role="button" class="nav_btn1" data-rel="popup" data-position-to="window" data-transition="pop"><font color="white">Sign Up</font></a>
 			</div><!--header_btn_wrapper -->
-			
-            
+
+<div style="position: absolute; display:none; top: 32px; background: blue; padding: 5px;" id="toggleMenuOpt" onclick="showMenu();">MENU</div>
+
+<script>
+
+    function showMenu()
+    {
+        $("#main_nav_bar").slideDown();
+    }
+    
+</script>
+
 <ul id="main_nav_bar">
     <li class="s2" onclick='FacebookInviteFriends();'><a href="#">Invite</a></li>
     <li class="s2" onClick="upload_news();"><a href="#">Upload</a></li>
-    <li class="s1"><a href="#filter_panel">Filters</a></li>
+    <li class="s3"><a href="#filter_panel">Filters</a></li>
     <li class="s1"><a href="#popupLogin" data-rel="popup" data-position-to="window" data-transition="pop">Sign In</a></li>
     <li class="s2"><a href="#" id="sign_out" >Sign Out</a></li>
     <li class="s1"><a href="#popupReg" data-rel="popup" data-position-to="window" data-transition="pop">Sign Up</a></li>
@@ -147,9 +162,9 @@ window.upload_news_data_status=0;
                     <button type="button" id="sign_in_btn" onClick="login_check();"></button>
                     <!--button type="button" id="fb" class="sign_in_btn" onClick="test_status();"></button-->
                     <button type="button" id="fb" class="sign_in_btn"></button>
-                    <button type="button" id="tweeter" class="sign_in_btn"></button>
+                    <!--<button type="button" id="tweeter" class="sign_in_btn"></button>
                     <button type="button" id="google" class="sign_in_btn"></button>
-                    <button type="button" id="yahoo" class="sign_in_btn"></button>
+                    <button type="button" id="yahoo" class="sign_in_btn"></button>-->
                 </div>
             </form>
 </div><!--popupLogin -->     
@@ -224,7 +239,7 @@ window.upload_news_data_status=0;
                     
                     <input type="hidden" name="news_id" id="news_id" >
                     <input type="text" name="headline" id="headline" value="" placeholder="Headline" data-theme="a" class="required">
-                    <input type="text" name="news_desc" id="news_desc" value="" placeholder="Description" data-theme="a"  class="required">
+                    <input type="text" name="news_desc" id="news_desc" class="tinymce" value="" placeholder="Description" data-theme="a"  class="required">
                     
                     
                      <input type="text" id="country" name="country" placeholder="Country"  data-theme="a"  class="required"/>
@@ -303,7 +318,7 @@ window.upload_news_data_status=0;
                     <div class="img_container" style="background:url(uploads/{{x.image}}) center center no-repeat;background-size:cover;"></div>
                     <div class="news_desc_short">
                     <h2>{{x.headline}}</h2>
-                    <p class="comment more">{{x.news_desc|limitTo: 250}}<span><a href="" class="morelink">...More</a></span></p>
+                    <p class="comment more" ng-bind-html="x.news_desc">{{x.news_desc|limitTo: 250}}<span><a href="" class="morelink">...More</a></span></p>
                     
                     </div>
                 </li>
@@ -592,7 +607,10 @@ function check_session(){
 				window.user_id=json_data.u_id;
 				$(".my_comment").show();
 				window.login_status=1;
-	
+				 alert("hi");
+                    $(".s2").show();
+                    $(".s1").hide();
+	                   alert("hoyi");
 				}
 		}
 	});
@@ -637,12 +655,16 @@ function logout_session(){
 		success: function($obj){
 			console.log($obj);
 			alert("You have been logged out");
+            $(".s2").hide();
+            $(".s1").show();
 			$(".user_name_disp").text("").hide();
 			$(".user_pro_pic").empty().hide();
 			 
 		}
 	});
 	 	
+    
+    
 }
 
 
@@ -714,7 +736,7 @@ window.onload = jsupdate_size;
 </script>    
     
 <script>
-var app = angular.module('news_net', []);
+var app = angular.module('news_net', ['ngSanitize']);
 
 
 
@@ -821,7 +843,12 @@ app.controller("fetch_news", function($scope, $http) {
 });
 
 
-
+$(document).ready(function() {
+	$('.tinymce').tinymce({
+	   script_url : 'js/tinymce/tinymce.min.js',
+	   theme : "modern"
+	});
+  });
 
 
 </script>
