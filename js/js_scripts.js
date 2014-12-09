@@ -289,7 +289,7 @@ function load_news_item(obj){
 	
 	
 	
-	$("#load_news_area").append('<h1 id="news-header-title">'+obj.headline+'</h1><p class="user_name">By <span id="news-user-name">'+obj.f_name+' '+obj.l_name+'</span></p><p class="news_time">'+obj.n_post_time+'</p><div style="background:url(uploads/'+obj.image+') center center no-repeat; background-size:cover"  id="news-img1" ></div><div style="background:url(uploads/'+obj.image+') center center no-repeat; background-size:cover" id="news-img2" ><img src="images/click_to_play.png"  id="click_to_play_btn"/></div><p id="news-description">'+obj.news_desc+' </p>');	
+	$("#load_news_area").append('<h1 id="news-header-title">'+obj.headline+'</h1><p class="user_name">By <span id="news-user-name">'+obj.f_name+' '+obj.l_name+'</span></p><p class="news_time">'+obj.n_post_time+'</p><div style="background:url(uploads/'+obj.image+') center center no-repeat; background-size:cover"  id="news-img1" ></div><div style="background:url(uploads/'+obj.image+') center center no-repeat; background-size:cover" id="news-img2" ><img src="images/click_to_play.png"  id="click_to_play_btn"/></div><div id="news-description">'+obj.news_desc+' </div>');	
 	
 
 	

@@ -234,7 +234,8 @@ window.upload_news_data_status=0;
          <div data-role="popup" id="popupUpload" data-theme="b" class="ui-corner-all" data-dismissible="false" data-position="fixed">
          <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right" onClick="close_popup_upload_news()" >Close</a>
             <form action="php/save_news_data.php" method="post" id='news_upload_frm' enctype="multipart/form-data">
-                <div style="padding:10px 20px;">
+                <div style="padding:10px 20px; background:url(../images/popup_signin_bg.png) center center no-repeat;
+}">
                     <h3>Upload News</h3>
                     
                     <input type="hidden" name="news_id" id="news_id" >
@@ -560,7 +561,10 @@ function show_user_fb_login_details(json_data){
 	window.user_id=json_data.u_id;
 	
 	$(".my_comment").show();
-
+    alert("hi");
+    $(".s2").show();
+    $(".s1").hide();
+    alert("hoyi");
 	window.login_status=1;
 }
 
@@ -607,10 +611,10 @@ function check_session(){
 				window.user_id=json_data.u_id;
 				$(".my_comment").show();
 				window.login_status=1;
-				 alert("hi");
-                    $(".s2").show();
-                    $(".s1").hide();
-	                   alert("hoyi");
+				alert("hi");
+                $(".s2").show();
+                $(".s1").hide();
+                alert("hoyi");
 				}
 		}
 	});
@@ -637,6 +641,10 @@ function check_fb_session(){
 				console.log("fb_session result= "+$obj3);
 				$(".my_comment").show();
 				window.login_status=1;
+                alert("hi - fb");
+                $(".s2").show();
+                $(".s1").hide();
+	            alert("hoyi - fb");
 			}
 		});	
 	}
