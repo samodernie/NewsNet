@@ -318,7 +318,7 @@ window.upload_news_data_status=0;
                     <div class="img_container" style="background:url(uploads/{{x.image}}) center center no-repeat;background-size:cover;"></div>
                     <div class="news_desc_short">
                     <h2>{{x.headline}}</h2>
-                    <p class="comment more" ng-bind-html="x.news_desc">{{x.news_desc|limitTo: 250}}<span><a href="" class="morelink">...More</a></span></p>
+                    <p class="comment more" ng-bind-html="x.news_desc|limitTo: 250">{{x.news_desc|limitTo: 250}}</p><span><a href="" class="morelink">...More</a></span>
                     
                     </div>
                 </li>
