@@ -63,6 +63,16 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 		while($row = mysql_fetch_assoc($res)){
 			$cat_id=$row['cat_id'];
 		}
+        
+        //rating
+    
+        $sql_news_rating1 = "update news set rating = rating - 10;";
+
+        print_r(mysql_query($sql_news_rating1));
+        print "updated rating";
+        
+        //save news
+        
 		$sql_save_news_media ="INSERT INTO `news`
 		(`n_id`, `headline`, `news_desc`, `n_post_time`, `image`, `video`, `city`, `country`, `n_status`, `u_id`, `cat_id`) VALUES 
 		('$news_id','$headline','$news_desc',NULL,'$news_image_name','$news_video_name','$city','$country',1,$u_id,'$cat_id');";
@@ -83,6 +93,15 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 			$cat_id=$row['cat_id'];
 		}
 		
+        //rating
+    
+        $sql_news_rating2 = "update news set rating = rating - 10;";
+
+        print_r(mysql_query($sql_news_rating2));
+        print "updated rating";
+        
+        //save news        
+        
 		$sql_save_news_media ="INSERT INTO `news`
 		(`n_id`, `headline`, `news_desc`, `n_post_time`, `image`, `video`, `city`, `country`, `n_status`, `u_id`, `cat_id`) VALUES 
 		('$news_id','$headline','$news_desc',NULL,'$news_image_name','$news_video_name','$city','$country',1,$u_id,'$cat_id');";
@@ -116,6 +135,16 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 		while($row = mysql_fetch_assoc($res)){
 			$cat_id=$row['cat_id'];
 		}
+        
+        //rating
+    
+        $sql_news_rating1 = "update news set rating = rating - 10;";
+
+        print_r(mysql_query($sql_news_rating1));
+        print "updated rating";        
+        
+        //save news
+        
 		$sql_save_news_media ="INSERT INTO `news`
 		(`n_id`, `headline`, `news_desc`, `n_post_time`, `image`, `video`, `city`, `country`, `n_status`, `u_id`, `cat_id`) VALUES 
 		('$news_id','$headline','$news_desc',NULL,'$news_image_name','$news_video_name','$city','$country',1,$u_id,'$cat_id');";
@@ -136,6 +165,16 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 			$cat_id=$row['cat_id'];
 		}
 		
+        //rating
+    
+        $sql_news_rating1 = "update news set rating = rating - 10;";
+
+        print_r(mysql_query($sql_news_rating1));
+        print "updated rating";        
+        
+        //save news        
+        
+        
 		$sql_save_news_media ="INSERT INTO `news`
 		(`n_id`, `headline`, `news_desc`, `n_post_time`, `image`, `video`, `city`, `country`, `n_status`, `u_id`, `cat_id`) VALUES 
 		('$news_id','$headline','$news_desc',NULL,'$news_image_name','$news_video_name','$city','$country',1,$u_id,'$cat_id');";

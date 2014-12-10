@@ -6,7 +6,7 @@ include_once('db.php');
 
 
 $news=array();
-	$get_news="SELECT news.*,user.*,category.*,date(news.n_post_time) as news_date FROM news,user,category WHERE news.u_id=user.u_id AND category.cat_id=news.cat_id  ORDER BY n_id DESC";
+	$get_news="SELECT news.*,user.*,category.*,date(news.n_post_time) as news_date FROM news,user,category WHERE news.u_id=user.u_id AND category.cat_id=news.cat_id  ORDER BY news.rating DESC;";
 	$res3 = mysql_query($get_news);
 	
 	if(mysql_num_rows($res3)>0){

@@ -9,6 +9,13 @@ if ( $_POST['ajax'] == 'save_comment' )
 
 	mysql_query($sql_save_comment);
 	print "saved comment";
+    
+    //rating
+    
+    $sql_comment_rating = "update news set rating = rating+5 where n_id = '$n_id';";
+
+	mysql_query($sql_comment_rating);
+	print "updated rating";
 
 }
 //EOF.	

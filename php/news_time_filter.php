@@ -24,7 +24,7 @@ $city=$_POST['city'];
 	AND (DATE( news.n_post_time ) 
 	BETWEEN '$from_date'
 	AND '$to_date' ) 
-	ORDER BY n_id DESC";
+	ORDER BY rating DESC";
 	$res3 = mysql_query($get_news);
 	
 	if(mysql_num_rows($res3)>0){

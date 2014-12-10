@@ -86,6 +86,14 @@ if ($_POST['ajax'] == 'set_vote_status'){
 			$sql_inset_votes_status="INSERT INTO `vote` (`n_id`, `u_id`, `status`) VALUES ('$n_id','$u_id','$vote_status')";
 			mysql_query($sql_inset_votes_status);
 			print json_encode("vote inserted");
+            
+            //rating
+    
+            $sql_vote_rating = "update news set rating = rating+2 where n_id = '$n_id';";
+
+            mysql_query($sql_vote_rating);
+            print "updated rating";
+            
 		}
 		
 	}
