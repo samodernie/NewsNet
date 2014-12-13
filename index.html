@@ -315,7 +315,7 @@ window.upload_news_data_status=0;
   
 			<ul id="news-summary">
 
-                <li ng-repeat="x in headline|filter:main_search|filter:category|filter:country|filter:city|orderBy:'-n_post_time'" ng-click="news_items.load_news_item(x)" class="repeat-animation hide-fade">
+                <li ng-repeat="x in headline|filter:main_search|filter:category|filter:country|filter:city" ng-click="news_items.load_news_item(x)" class="repeat-animation hide-fade">
                     <div class="img_container" style="background:url(uploads/{{x.image}}) center center no-repeat;background-size:cover;"></div>
                     <div class="news_desc_short">
                     <h2>{{x.headline}}</h2>
