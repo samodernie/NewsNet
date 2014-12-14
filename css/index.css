@@ -12,6 +12,10 @@
 	margin: 0  !important;
 }
 
+.hide{
+ display: none !important;
+}
+
 .ui-popup-screen {
     background-color: rgba(0, 0, 0, 0.8) !important;
 }
@@ -31,6 +35,8 @@ a.morelink {
 	display: none;
 
 }
+
+
 
 *{
 	padding: 0;
@@ -204,7 +210,7 @@ padding: 0;
 position: absolute;
 right: 0;
 top: 7px;
-margin: 0px 105px 0 0px;
+margin: 0px 123px 0 0px;
 }
 .ui-header{
 padding:0 !important;
@@ -223,7 +229,7 @@ div.user_pro_pic{
 width: 40px;
 height: 40px;
 margin-top: -35px;
-margin-right: 35px;
+margin-right: 73px;
 float: left;
 }
 h3.user_name_disp{
@@ -425,6 +431,7 @@ height:150px;
 float: right;
 padding: 0;
 margin: 10px 5% 10px 5%;
+    display: none;
 }
 img#click_to_play_btn{
 	width: 20%;

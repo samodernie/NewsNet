@@ -92,11 +92,11 @@ window.upload_news_data_status=0;
 </script>
 </head>
 
-<body>
+<body  ng-controller="fetch_news as news_items">
 
 <div id="fb-root"></div>
 <!-- Home -->
-<div data-role="page" id="home" data-theme="a"  ng-controller="fetch_news as news_items">
+<div data-role="page" id="home" data-theme="a" >
 
 	<div data-role="header"  data-tap-toggle="false" data-position="fixed" data-id="news_header_fixed" >
     	<div class="user_details">
@@ -332,13 +332,13 @@ window.upload_news_data_status=0;
 
 
 <!---------------------------------------------------- news page --------------------------------------->
-<div id="show-news-page" class="show_news_page"  data-role="page" data-theme="a">
+<div id="show-news-page" class="show_news_page"  data-role="page" data-theme="a" >
 
 
 	<div data-role="header"  data-tap-toggle="false" data-position="fixed" data-id="news_header_fixed" >
     	<div class="user_details">
         	<div class="user_pro_pic"></div> 
-            <h3 class="user_name_disp"></h3>
+            <h3 class="user_name_disp hide"></h3>
         </div><!-- user details-->
 		<div class="header_container" >
         
@@ -350,15 +350,15 @@ window.upload_news_data_status=0;
 			</div><!--header_btn_wrapper -->
 			
 			<div class="header_logo"></div><!--header_logo -->
-             <a href="#" data-role="button" class="news_show_back"  data-rel="back">Back</a>
+             <a href="#" data-role="button" class="news_show_back"  data-rel="back"  ng-click="reload_news_only()">Back</a>
 		</div><!--header_container -->
 	</div><!-- /header -->
 
 <div role="main" class="ui-content">
 <div class="content-wrapper right-side">
 			
-			<div class="cat_arrow" id="cat-category"></div><!--cat_arrow -->
-			<div class="cat_arrow" id="cat-location"></div><!--cat_arrow -->
+			<div class="cat_arrow hide" id="cat-category"></div><!--cat_arrow -->
+			<div class="cat_arrow hide" id="cat-location"></div><!--cat_arrow -->
          <!--    
         <input id="qty1" type="text" value="0" class="qty"  data-wrapper-class="votes_input_box"/>
         <img id="add1" src="http://i.imgur.com/98cvZnj.png" width="20" height="20" class="add" onClick="add_one();"/>
@@ -550,7 +550,7 @@ function save_fb_user(){
 
 function show_user_fb_login_details(json_data){
 	var name=json_data.first_name+" "+json_data.last_name;
-	$(".user_name_disp").text(name);
+	//$(".user_name_disp").text(name);
 	$(".user_pro_pic").css("background","url(https://graph.facebook.com/"+ json_data.id +"/picture?width=50&height=50)center center no-repeat");
 	$(".my_pro_pic_cmt").css("background","url(https://graph.facebook.com/"+ json_data.id +"/picture?width=50&height=50)center center no-repeat");// for comments
 	
@@ -561,10 +561,10 @@ function show_user_fb_login_details(json_data){
 	window.user_id=json_data.u_id;
 	
 	$(".my_comment").show();
-    alert("hi");
+    //alert("hi");
     $(".s2").show();
     $(".s1").hide();
-    alert("hoyi");
+    //alert("hoyi");
 	window.login_status=1;
 }
 
@@ -600,9 +600,9 @@ function check_session(){
 				console.log("no past sessions");
 				window.login_status=0;
 			}else{
-				$(".user_name_disp").text("").show();
+				//$(".user_name_disp").text("").show();
 				$(".user_pro_pic").empty().show();
-				$(".user_name_disp").text(json_data.full_name);
+				//$(".user_name_disp").text(json_data.full_name);
 				$(".user_pro_pic").css("background","url(uploads/"+ json_data.user_pic +")center center no-repeat");
 				$(".my_pro_pic_cmt").css("background","url(uploads/"+ json_data.user_pic +")center center no-repeat");//for comment 
 				$(".user_pro_pic").css("background-size","cover");
@@ -611,10 +611,10 @@ function check_session(){
 				window.user_id=json_data.u_id;
 				$(".my_comment").show();
 				window.login_status=1;
-				alert("hi");
+				//alert("hi");
                 $(".s2").show();
                 $(".s1").hide();
-                alert("hoyi");
+                //alert("hoyi");
 				}
 		}
 	});
@@ -641,10 +641,10 @@ function check_fb_session(){
 				console.log("fb_session result= "+$obj3);
 				$(".my_comment").show();
 				window.login_status=1;
-                alert("hi - fb");
+               // alert("hi - fb");
                 $(".s2").show();
                 $(".s1").hide();
-	            alert("hoyi - fb");
+	            //alert("hoyi - fb");
 			}
 		});	
 	}
@@ -665,7 +665,7 @@ function logout_session(){
 			alert("You have been logged out");
             $(".s2").hide();
             $(".s1").show();
-			$(".user_name_disp").text("").hide();
+			//$(".user_name_disp").text("").hide();
 			$(".user_pro_pic").empty().hide();
 			 
 		}
@@ -844,7 +844,23 @@ app.controller("fetch_news", function($scope, $http) {
 			window.news_array_size=response.length;
 			console.log(response.length);
 			$scope.headline = response;
+        alert('1');
 	});
+    
+    
+    $scope.reload_news_only = function () {
+      	//alert('reload');
+        $http.get("php/news.php").success(function(response) {
+            console.log(response);
+            window.news_array=response;
+            window.news_array_size=response.length;
+            console.log(response.length);
+            $scope.headline = response;
+           // alert('2');
+            console.log('reload news');
+        });
+		
+    };
 	
 	
 
@@ -858,7 +874,24 @@ $(document).ready(function() {
 	});
   });
 
+    /*
+ function reload_news(){
+     $http.get("php/news.php").success(function(response) {
+		
+		   console.log(response);
+		    window.news_array=response;
+			window.news_array_size=response.length;
+			console.log(response.length);
+			$scope.headline = response;
+        alert('2');
+	});
+	   
+    }
+    
+    */
+    
 
+    
 </script>
 
 </body>
