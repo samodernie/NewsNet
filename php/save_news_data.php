@@ -64,12 +64,26 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 			$cat_id=$row['cat_id'];
 		}
         
-        //rating
+        //rating-----------------------------------------------------------------------------
     
         $sql_news_rating1 = "update news set rating = rating - 10;";
 
         print_r(mysql_query($sql_news_rating1));
         print "updated rating";
+
+        //rating from reporter
+
+        $sql_vote_rating_reporter = "update news set rating = rating + (SELECT rating FROM `user` WHERE u_id = news.u_id)/10 where n_id = '$n_id';";
+
+        mysql_query($sql_vote_rating_reporter);
+        print "updated rating";    
+
+        //reporter rating
+
+        $sql_reporter_rating = "update `user` set rating = rating + 7 WHERE u_id = (select u_id from news where n_id ='$n_id');";
+
+        mysql_query($sql_reporter_rating);
+        print "updated user rating";          
         
         //save news
         
@@ -93,13 +107,27 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 			$cat_id=$row['cat_id'];
 		}
 		
-        //rating
+        //rating------------------------------------------------------------------------------
     
         $sql_news_rating2 = "update news set rating = rating - 10;";
 
         print_r(mysql_query($sql_news_rating2));
         print "updated rating";
-        
+
+        //rating from reporter
+
+        $sql_vote_rating_reporter = "update news set rating = rating + (SELECT rating FROM `user` WHERE u_id = news.u_id)/10 where n_id = '$n_id';";
+
+        mysql_query($sql_vote_rating_reporter);
+        print "updated rating";    
+
+        //reporter rating
+
+        $sql_reporter_rating = "update `user` set rating = rating + 7 WHERE u_id = (select u_id from news where n_id ='$n_id');";
+
+        mysql_query($sql_reporter_rating);
+        print "updated user rating";          
+                
         //save news        
         
 		$sql_save_news_media ="INSERT INTO `news`
@@ -136,12 +164,27 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 			$cat_id=$row['cat_id'];
 		}
         
-        //rating
+        //rating---------------------------------------------------------------------------------------------
     
         $sql_news_rating1 = "update news set rating = rating - 10;";
 
         print_r(mysql_query($sql_news_rating1));
         print "updated rating";        
+
+        //rating from reporter
+
+        $sql_vote_rating_reporter = "update news set rating = rating + (SELECT rating FROM `user` WHERE u_id = news.u_id)/10 where n_id = '$n_id';";
+
+        mysql_query($sql_vote_rating_reporter);
+        print "updated rating";    
+
+        //reporter rating
+
+        $sql_reporter_rating = "update `user` set rating = rating + 7 WHERE u_id = (select u_id from news where n_id ='$n_id');";
+
+        mysql_query($sql_reporter_rating);
+        print "updated user rating";          
+        
         
         //save news
         
@@ -165,13 +208,29 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 			$cat_id=$row['cat_id'];
 		}
 		
-        //rating
+        //rating----------------------------------------------------------
     
         $sql_news_rating1 = "update news set rating = rating - 10;";
 
         print_r(mysql_query($sql_news_rating1));
         print "updated rating";        
+
         
+        //rating from reporter
+
+        $sql_vote_rating_reporter = "update news set rating = rating + (SELECT rating FROM `user` WHERE u_id = news.u_id)/10 where n_id = '$n_id';";
+
+        mysql_query($sql_vote_rating_reporter);
+        print "updated rating";    
+
+        //reporter rating
+
+        $sql_reporter_rating = "update `user` set rating = rating + 7 WHERE u_id = (select u_id from news where n_id ='$n_id');";
+
+        mysql_query($sql_reporter_rating);
+        print "updated user rating";          
+        
+
         //save news        
         
         
