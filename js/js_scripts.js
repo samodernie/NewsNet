@@ -153,10 +153,10 @@ function login_check(){
 				window.user_id=json_data[0].u_id;
 				show_user_login_details(json_data);
 				//alert(window.user_id);
-                   // alert("hi");
+                 //   alert("hi");
                     $(".s2").show();
                     $(".s1").hide();
-	                  // alert("hoyi");
+	              //     alert("hoyi");
 			}
 			
 			

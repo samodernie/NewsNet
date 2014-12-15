@@ -6,7 +6,7 @@ if ( $_POST['ajax'] == 'get_category' ){
 	$reply=array();
 	//$reply["query"]=$_REQUEST["query"];
 	
-	$get_cat_query="SELECT * FROM category  WHERE cat_type='main' ";
+	$get_cat_query="SELECT * FROM category";
 	$res = mysql_query($get_cat_query);
 	//print mysql_num_rows($res);
 	
