@@ -548,6 +548,16 @@ position: absolute;
 border: 0;
 border-radius: 4px;
 }
+
+#fb_share{
+width: 100px;
+height: 40px;
+background:url(../images/fbshare.png);
+position: absolute;
+left: 15%;
+top: 5%;
+}
+
 .votes_text{
 	float:left;
 	width:80px;
