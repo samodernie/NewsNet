@@ -196,32 +196,45 @@ window.upload_news_data_status=0;
 <!-----------------------------filter ------------------------->        
 <!--div data-role="panel" id="filter_panel" data-position="right" data-display="overlay" data-theme="a" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-b  ui-panel-animate ui-panel-open" data-position-fixed="true"-->
 
-<div data-role="panel" id="filter_panel" data-position="right" data-display="overlay" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-d  ui-panel-animate ui-panel-open" data-position-fixed="true">
+<div data-role="panel" id="filter_panel" data-position="right" data-display="overlay" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-animate ui-panel-open" data-position-fixed="true">
     <!-- panel content goes here -->
  
 <label for="sel_cat" class="sel_datepicker">Category</label>  
-<select id="sel_cat" ng-model="category" class="sel_category" name="sel_cat"  data-wrapper-class="select_cat">
+<select id="sel_cat"  class="sel_category" name="sel_cat"  data-wrapper-class="select_cat">
 <option value=""  selected>ALL</option>
 <option ng-repeat="a in categories" value="{{a.cat_name}}">{{a.cat_name}}</option>
 </select> 
+    
+    
+<label for="sel_sub_cat1" class="sel_datepicker">Sub Category 1</label>  
+<select id="sel_sub_cat1"  class="sel_sub_cat1" name="sel_sub_cat1"  data-wrapper-class="select_cat">
+<option value=""  selected>ALL</option>
+<option ng-repeat="a in sub_categories1" value="{{a.cat_name}}">{{a.cat_name}}</option>
+</select>  
+    
+<label for="sel_sub_cat2" class="sel_datepicker">Sub Category 1</label>  
+<select id="sel_sub_cat2"  class="sel_sub_cat2" name="sel_sub_cat2"  data-wrapper-class="select_cat">
+<option value=""  selected>ALL</option>
+<option ng-repeat="a in sub_categories2" value="{{a.cat_name}}">{{a.cat_name}}</option>
+</select>       
 
 <label for="sel_country" class="sel_datepicker">Country</label>        
-<select id="sel_country" ng-model="country" class="select_country" name="sel_country"  data-wrapper-class="select_country"><option value=""  selected>ALL</option>
+<select id="sel_country"  class="select_country" name="sel_country"  data-wrapper-class="select_country"><option value=""  selected>ALL</option>
 <option ng-repeat="b in countries" value="{{b.country}}">{{b.country}}</option>
 </select>    
  
 <label for="sel_city" class="sel_datepicker">City</label>    
-<select id="sel_city" ng-model="city" class="select_city" name="sel_city"  data-wrapper-class="select_city">
+<select id="sel_city"  class="select_city" name="sel_city"  data-wrapper-class="select_city">
 <option value=""  selected>ALL</option>
 <option ng-repeat="c in cities" value="{{c.city}}">{{c.city}}</option>
 </select>
    
    
 <label for="datepicker" class="sel_datepicker">From</label>
-<input type="text" ng-model="date1" data-role="date" data-inline="true" id="datepicker" type="date" name="date" data-wrapper-class="date_box" readonly="readonly"  >
+<input type="text"  data-role="date" data-inline="true" id="datepicker" type="date" name="date" data-wrapper-class="date_box" readonly="readonly"  >
 
 <label for="datepicker2" class="sel_datepicker">To</label>
-<input type="text" ng-model="date2" data-role="date" data-inline="true" id="datepicker2" type="date" name="date" data-wrapper-class="date_box" readonly="readonly">
+<input type="text"  data-role="date" data-inline="true" id="datepicker2" type="date" name="date" data-wrapper-class="date_box" readonly="readonly">
     
     
     
@@ -246,15 +259,19 @@ window.upload_news_data_status=0;
                      <input type="text" id="country" name="country" placeholder="Country"  data-theme="a"  class="required"/>
                      <input type="text" id="city" name="city" placeholder="City"  data-theme="a"  class="required"/>
                     
-                    <input type="text" id="searchField" name="searchField" placeholder="Category" data-wrapper-class="search_input_box" data-theme="a"  class="required">
+                    <input type="text" id="searchField" name="searchField" placeholder="Category"  data-theme="a"  class="required">
+                    
+                     <input type="text" id="sub_cat1" name="sub_cat1" placeholder="Sub Category 1"  data-theme="a"  class="required"/>
+                     <input type="text" id="sub_cat2" name="sub_cat2" placeholder="Sub Category 2"  data-theme="a"  class="required"/>
+                    
                     <button type="button" data-theme="b" id="add_cat_btn" name="add_cat_btn" data-icon="plus">Add</button>
                     <div class="clear_area"></div>
 					<ul id="suggestions" data-role="listview" data-inset="true" data-wrapper-class="search_result"></ul>
                     
-					<label for="n_image" class="file_image_lbl">Image:</label>
+					<label for="n_image" class="file_image_lbl" style="color:black">Image:</label>
                     <input type="file" name="myfile[]" id="n_image"  class="required" accept="image/*" data-wrapper-class="file_image">
                     
-                    <label for="n_video" class="file_video_lbl">Video:</label>
+                    <label for="n_video" class="file_video_lbl" style="color:black">Video:</label>
                     <input type="file" name="myfile[]" id="n_video"  class="required" accept="video/*" data-wrapper-class="file_video">
                     
 					<div class="progress">
@@ -315,16 +332,19 @@ window.upload_news_data_status=0;
   
 			<ul id="news-summary">
 
-                <li ng-repeat="x in headline|filter:main_search|filter:category|filter:country|filter:city" ng-click="news_items.load_news_item(x)" class="repeat-animation hide-fade">
+                <li ng-repeat="x in headline|filter:main_search" ng-click="news_items.load_news_item(x)" class="repeat-animation hide-fade" >
                     <div class="img_container" style="background:url(uploads/{{x.image}}) center center no-repeat;background-size:cover;"></div>
                     <div class="news_desc_short">
                     <h2>{{x.headline}}</h2>
-                    <p class="comment more" ng-bind-html="x.news_desc|limitTo: 250">{{x.news_desc|limitTo: 250}}</p><span><a href="" class="morelink">...More</a></span>
-                    
+                    <p class="comment more" ng-bind-html="x.news_desc|limitTo: 250" >{{x.news_desc|limitTo: 250}}</p><span ng-show="!headline.length"><a href="" class="morelink" >...More</a></span>
+                   
                     </div>
+                    
                 </li>
-                
+                <li ng-show="!headline.length" ng-init="headline.length=-2"><h2 style="text-align:center;">No News</h2></li> 
                 </ul>
+          
+    
 		</div><!--wrapper left -->
 	</div><!-- /content -->
 </div><!-- /page -->
@@ -755,6 +775,8 @@ app.controller("fetch_news", function($scope, $http) {
 
 			
 			var category=$("#sel_cat").val();
+            var sel_sub_cat1=$("#sel_sub_cat1").val();
+            var sel_sub_cat2=$("#sel_sub_cat2").val();
 			var country=$("#sel_country").val();
 			var city=$("#sel_city").val();
 			var date1 =$("#datepicker").val();
@@ -770,18 +792,25 @@ app.controller("fetch_news", function($scope, $http) {
 						str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
 						return str.join("&");
 				},
-					data: {category:category,country:country,city:city,from_date:date1,to_date:date2}
+					data: {category:category,sel_sub_cat1:sel_sub_cat1,sel_sub_cat2:sel_sub_cat2,country:country,city:city,from_date:date1,to_date:date2}
 				}).success(function (response) {
 				
+                   
     				console.log(response);
+               // alert(response);
 					window.news_array=response;
 					window.news_array_size=response.length;
+                
 					console.log(response.length);
-					$scope.headline = response;
 					
-					if(response=="no news"){
-						alert("no news");
-					}
+                
+					
+					if(response.length==9){
+						//alert("no news");
+                        $scope.headline='';
+					}else{
+                     $scope.headline = response;   
+                    }
 				});
 		
 	};
@@ -819,6 +848,22 @@ app.controller("fetch_news", function($scope, $http) {
 		console.log(response_category.length);
 		$scope.categories = response_category;
 	});
+    
+    $http.get("php/get_sub_categories1.php").success(function(response_category) {
+		//alert(response_category);
+		console.log(response_category);
+		console.log(response_category.length);
+		$scope.sub_categories1 = response_category;
+	});
+     $http.get("php/get_sub_categories2.php").success(function(response_category) {
+		//alert(response_category);
+		console.log(response_category);
+		console.log(response_category.length);
+		$scope.sub_categories2 = response_category;
+	});
+    
+    
+    
 	
 	$http.get("php/get_oldest_day.php").success(function(response_old_day) {
 		//alert(response_category);
@@ -844,7 +889,7 @@ app.controller("fetch_news", function($scope, $http) {
 			window.news_array_size=response.length;
 			console.log(response.length);
 			$scope.headline = response;
-        alert('1');
+            //alert('1');
 	});
     
     

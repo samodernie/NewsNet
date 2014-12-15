@@ -12,6 +12,10 @@
 	margin: 0  !important;
 }
 
+.ui-panel-inner {
+margin: 86px 0 !important;
+}
+
 .hide{
  display: none !important;
 }
@@ -829,6 +833,8 @@ line-height:13px !important;
 #filter_panel{
 font-size:12px !important;
 line-height:13px !important;	
+background-color:#275F9B ;
+color: white;
 }
 
 

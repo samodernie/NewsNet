@@ -10,9 +10,14 @@ $upload_dir = "../uploads/";
 $news_id=$_POST['news_id'];
 $headline=$_POST['headline'];
 $news_desc=$_POST['news_desc'];
+
 $searchField=$_POST['searchField'];
+$sub_cat1=$_POST['sub_cat1'];
+$sub_cat2=$_POST['sub_cat2'];
+
 $country=$_POST['country'];
 $city=$_POST['city'];
+
 $u_id=$_SESSION['u_id'];
 
 
@@ -95,8 +100,18 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 		// print "<br/>";
 	}else{
 		
-		$sql_inset_new_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`, `u_id`) VALUES (NULL,'$searchField',1,'$u_id')";
+        
+        
+        
+		$sql_inset_new_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`,`cat_type`, `u_id`) VALUES (NULL,'$searchField',1,'main','$u_id')";
 		mysql_query($sql_inset_new_category);
+        
+        $sql_inset_new_sub1_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`,`cat_type`, `u_id`) VALUES (NULL,'$sub_cat1',1,'sub1','$u_id')";
+		mysql_query($sql_inset_new_sub1_category);
+        
+        $sql_inset_new_sub2_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`,`cat_type`, `u_id`) VALUES (NULL,'$sub_cat2',1,'sub2','$u_id')";
+		mysql_query($sql_inset_new_sub2_category);
+        
 		
 		//print "insert new category ".$cat_id." ".$searchField." ".$u_id;
 		
@@ -196,8 +211,25 @@ $get_cat_id="SELECT cat_id FROM category WHERE (cat_name='$searchField')";
 		// print "<br/>";
 	}else{
 		
-		$sql_inset_new_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`, `u_id`) VALUES (NULL,'$searchField',1,'$u_id')";
+        
+        
+		//$sql_inset_new_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`, `u_id`) VALUES (NULL,'$searchField',1,'$u_id')";
+		//mysql_query($sql_inset_new_category);
+        
+        
+        
+        $sql_inset_new_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`,`cat_type`, `u_id`) VALUES (NULL,'$searchField',1,'main','$u_id')";
 		mysql_query($sql_inset_new_category);
+        
+        $sql_inset_new_sub1_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`,`cat_type`, `u_id`) VALUES (NULL,'$sub_cat1',1,'sub1','$u_id')";
+		mysql_query($sql_inset_new_sub1_category);
+        
+        $sql_inset_new_sub2_category="INSERT INTO `category`(`cat_id`, `cat_name`, `cat_status`,`cat_type`, `u_id`) VALUES (NULL,'$sub_cat2',1,'sub2','$u_id')";
+		mysql_query($sql_inset_new_sub2_category);
+        
+        
+        
+        
 		
 		//print "insert new category ".$cat_id." ".$searchField." ".$u_id;
 		

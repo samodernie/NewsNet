@@ -3,7 +3,7 @@ include_once('db.php');
 error_reporting(0);
 
 
-	$sql3 ="SELECT DISTINCT cat_name FROM category WHERE cat_name!='false' AND cat_name!='' AND cat_type='main' " ;
+	$sql3 ="SELECT DISTINCT cat_name FROM category WHERE cat_name!='false' AND cat_name!='' AND cat_type='sub2' " ;
 	
 	$res3 = mysql_query($sql3);
 	$cities=array();
